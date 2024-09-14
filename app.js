@@ -32,15 +32,16 @@ function App() {
     // Логика для создания карточки
   };
 
-  const exportToJSON = () => {
-    const dataStr = JSON.stringify(animeList);
-    const blob = new Blob([dataStr], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'anime_cards.json';
-    link.click();
+  const exportToJSON = () => { // Пример содержимого функции
+    const dataStr = JSON.stringify(animeList); // Сериализация списка аниме
+    const blob = new Blob([dataStr], { type: 'application/json' }); // Создание Blob для загрузки
+    const url = URL.createObjectURL(blob); // Создание ссылки на объект
+    const link = document.createElement('a'); // Создание HTML ссылки
+    link.href = url; // Присваивание URL
+    link.download = 'anime_cards.json'; // Установка имени файла
+    link.click(); // Эмуляция клика для скачивания
   };
+  
 
   const importFromJSON = (event) => {
     const file = event.target.files[0];
