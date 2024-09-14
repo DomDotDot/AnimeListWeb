@@ -53,6 +53,8 @@ function App() {
     reader.readAsText(file);
   };
 
+  console.log('Компонент App рендерится');
+
   return (
     <div>
       <button onClick={handleCreateCard}>Создать карточку</button>
@@ -71,7 +73,7 @@ function App() {
         ))}
       </div>
 
-      {showModal && (
+      {showModal && selectedAnime && (
         <div className="modal active" onClick={handleModalClose}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <img src={selectedAnime.image} alt={selectedAnime.titleRomaji} />
